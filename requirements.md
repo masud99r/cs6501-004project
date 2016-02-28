@@ -1,5 +1,7 @@
 Requirements:
 
+Create a "data" folder in the project root directory. Then create a "stackoverflowDump" folder inside the "data" folder. Then download the following files which are required to run the project.
+
 1. "./data/stackoverflowDump/Badges.xml" file required which can be download from [here](http://archive.org/download/stackexchange/stackoverflow.com-Badges.7z). 
 2. "./data/stackoverflowDump/Users.xml" file required which can be download from [here](http://archive.org/download/stackexchange/stackoverflow.com-Users.7z). 
 3. "./data/stackoverflowDump/Comments.xml" file required which can be download from [here](http://archive.org/download/stackexchange/stackoverflow.com-Comments.7z).
