@@ -11,36 +11,36 @@ package edu.virginia.cs.descriptors;
  */
 public class Votes {
 
-    private String _id;
-    private String postId;
+    private Integer _id = -1;
+    private Integer postId = -1;
     // 1:AcceptedByOriginator, 2:UpMod, 3:DownMod, 4:Offensive, 5:Favorite, 6:Close, 7:Reopen
     // 8:BountyStart, 9:BountyClose, 10:Deletion, 11:Undeletion, 12:Spam, 13:InformModerator
-    private String voteTypeId;
-    private String creationDate;
-    private String userId; // only for VoteTypeId 5
-    private String bountyAmount; // only for VoteTypeId 9
+    private Integer voteTypeId = -1;
+    private String creationDate = "";
+    private Integer userId = -1; // only for VoteTypeId 5
+    private String bountyAmount = ""; // only for VoteTypeId 9
 
-    public String getId() {
+    public Integer getId() {
         return _id;
     }
 
-    public void setId(String _id) {
+    public void setId(Integer _id) {
         this._id = _id;
     }
 
-    public String getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(String postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 
-    public String getVoteTypeId() {
+    public Integer getVoteTypeId() {
         return voteTypeId;
     }
 
-    public void setVoteTypeId(String voteTypeId) {
+    public void setVoteTypeId(Integer voteTypeId) {
         this.voteTypeId = voteTypeId;
     }
 
@@ -52,11 +52,11 @@ public class Votes {
         this.creationDate = creationDate;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

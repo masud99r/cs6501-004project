@@ -11,56 +11,56 @@ package edu.virginia.cs.descriptors;
  */
 public class Posts {
 
-    private String _id;
-    private String postTypeId; // 1:Question, 2:Answer
-    private String parentId; // only present if postTypeId is 2
-    private String acceptedAnswerId; // only present if postTypeId is 1
-    private String creationDate;
-    private String score;
-    private String viewCount;
-    private String body;
-    private String ownerUserId;
-    private String lastEditorUserId;
-    private String lastEditorDisplayName;
-    private String lastEditDate;
-    private String lastActivityDate;
-    private String communityOwnedDate;
-    private String closedDate;
-    private String title;
-    private String tags;
-    private String answerCount;
-    private String commentCount;
-    private String favoriteCount;
+    private Integer _id = -1;
+    private Integer postTypeId = -1; // 1:Question, 2:Answer
+    private Integer parentId = -1; // only present if postTypeId is 2
+    private Integer acceptedAnswerId = -1; // only present if postTypeId is 1
+    private String creationDate = "";
+    private Integer score = -1;
+    private Integer viewCount = -1;
+    private String body = "";
+    private Integer ownerUserId = -1;
+    private Integer lastEditorUserId = -1;
+    private String lastEditorDisplayName = "";
+    private String lastEditDate = "";
+    private String lastActivityDate = "";
+    private String communityOwnedDate = "";
+    private String closedDate = "";
+    private String title = "";
+    private String tags = "";
+    private Integer answerCount = -1;
+    private Integer commentCount = -1;
+    private Integer favoriteCount = -1;
 
-    public String getId() {
+    public Integer getId() {
         return _id;
     }
 
-    public void setId(String _id) {
+    public void setId(Integer _id) {
         this._id = _id;
     }
 
-    public String getPostTypeId() {
+    public Integer getPostTypeId() {
         return postTypeId;
     }
 
-    public void setPostTypeId(String postTypeId) {
+    public void setPostTypeId(Integer postTypeId) {
         this.postTypeId = postTypeId;
     }
 
-    public String getParentId() {
+    public Integer getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
-    public String getAcceptedAnswerId() {
+    public Integer getAcceptedAnswerId() {
         return acceptedAnswerId;
     }
 
-    public void setAcceptedAnswerId(String acceptedAnswerId) {
+    public void setAcceptedAnswerId(Integer acceptedAnswerId) {
         this.acceptedAnswerId = acceptedAnswerId;
     }
 
@@ -72,19 +72,19 @@ public class Posts {
         this.creationDate = creationDate;
     }
 
-    public String getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
-    public String getViewCount() {
+    public Integer getViewCount() {
         return viewCount;
     }
 
-    public void setViewCount(String viewCount) {
+    public void setViewCount(Integer viewCount) {
         this.viewCount = viewCount;
     }
 
@@ -96,19 +96,19 @@ public class Posts {
         this.body = body;
     }
 
-    public String getOwnerUserId() {
+    public Integer getOwnerUserId() {
         return ownerUserId;
     }
 
-    public void setOwnerUserId(String ownerUserId) {
+    public void setOwnerUserId(Integer ownerUserId) {
         this.ownerUserId = ownerUserId;
     }
 
-    public String getLastEditorUserId() {
+    public Integer getLastEditorUserId() {
         return lastEditorUserId;
     }
 
-    public void setLastEditorUserId(String lastEditorUserId) {
+    public void setLastEditorUserId(Integer lastEditorUserId) {
         this.lastEditorUserId = lastEditorUserId;
     }
 
@@ -168,27 +168,27 @@ public class Posts {
         this.tags = tags;
     }
 
-    public String getAnswerCount() {
+    public Integer getAnswerCount() {
         return answerCount;
     }
 
-    public void setAnswerCount(String answerCount) {
+    public void setAnswerCount(Integer answerCount) {
         this.answerCount = answerCount;
     }
 
-    public String getCommentCount() {
+    public Integer getCommentCount() {
         return commentCount;
     }
 
-    public void setCommentCount(String commentCount) {
+    public void setCommentCount(Integer commentCount) {
         this.commentCount = commentCount;
     }
 
-    public String getFavoriteCount() {
+    public Integer getFavoriteCount() {
         return favoriteCount;
     }
 
-    public void setFavoriteCount(String favoriteCount) {
+    public void setFavoriteCount(Integer favoriteCount) {
         this.favoriteCount = favoriteCount;
     }
 

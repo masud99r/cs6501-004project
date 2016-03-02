@@ -10,14 +10,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.FieldType;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
@@ -25,7 +23,7 @@ import org.apache.lucene.util.Version;
  *
  * @author Wasi
  */
-public class UserIndexer {
+public class TagIndexer {
 
     /**
      * Creates the initial index files on disk
@@ -38,7 +36,7 @@ public class UserIndexer {
         Analyzer analyzer = new SpecialAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_46,
                 analyzer);
-        config.setOpenMode(OpenMode.CREATE);
+        config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         config.setRAMBufferSizeMB(2048.0);
 
         FSDirectory dir;
@@ -75,12 +73,9 @@ public class UserIndexer {
             String[] splits = line.split("\t");
             Document doc = new Document();
             doc.add(new Field("id", splits[0], _contentFieldType));
-            doc.add(new Field("reputation", splits[1], _FieldType));
-            doc.add(new Field("displayname", splits[2], _FieldType));
-            doc.add(new Field("website", splits[3], _FieldType));
-            doc.add(new Field("views", splits[4], _FieldType));
-            doc.add(new Field("upvotes", splits[5], _FieldType));
-            doc.add(new Field("downvotes", splits[6], _FieldType));
+            doc.add(new Field("tagName", splits[1], _FieldType));
+            doc.add(new Field("count", splits[2], _FieldType));
+            doc.add(new Field("wikiPostId", splits[3], _FieldType));
             writer.addDocument(doc);
 
             ++indexed;

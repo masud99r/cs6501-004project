@@ -10,14 +10,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.FieldType;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
@@ -25,7 +23,7 @@ import org.apache.lucene.util.Version;
  *
  * @author Wasi
  */
-public class UserIndexer {
+public class PostIndexer {
 
     /**
      * Creates the initial index files on disk
@@ -38,7 +36,7 @@ public class UserIndexer {
         Analyzer analyzer = new SpecialAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_46,
                 analyzer);
-        config.setOpenMode(OpenMode.CREATE);
+        config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         config.setRAMBufferSizeMB(2048.0);
 
         FSDirectory dir;
@@ -75,12 +73,19 @@ public class UserIndexer {
             String[] splits = line.split("\t");
             Document doc = new Document();
             doc.add(new Field("id", splits[0], _contentFieldType));
-            doc.add(new Field("reputation", splits[1], _FieldType));
-            doc.add(new Field("displayname", splits[2], _FieldType));
-            doc.add(new Field("website", splits[3], _FieldType));
-            doc.add(new Field("views", splits[4], _FieldType));
-            doc.add(new Field("upvotes", splits[5], _FieldType));
-            doc.add(new Field("downvotes", splits[6], _FieldType));
+            doc.add(new Field("postTypeId", splits[1], _FieldType));
+            doc.add(new Field("parentId", splits[2], _FieldType));
+            doc.add(new Field("acceptedAnswerId", splits[3], _FieldType));
+            doc.add(new Field("creationDate", splits[4], _FieldType));
+            doc.add(new Field("score", splits[5], _FieldType));
+            doc.add(new Field("viewCount", splits[6], _FieldType));
+            doc.add(new Field("body", splits[7], _FieldType));
+            doc.add(new Field("ownerId", splits[8], _FieldType));
+            doc.add(new Field("title", splits[9], _FieldType));
+            doc.add(new Field("tags", splits[10], _FieldType));
+            doc.add(new Field("answerCount", splits[11], _FieldType));
+            doc.add(new Field("commentCount", splits[12], _FieldType));
+            doc.add(new Field("favoriteCount", splits[13], _FieldType));
             writer.addDocument(doc);
 
             ++indexed;

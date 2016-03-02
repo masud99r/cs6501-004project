@@ -41,8 +41,8 @@ public class ParseUsers {
     public void readFile(String filename) {
         try {
             File inputFile = new File(filename);
-            UserHandler userhandler = new UserHandler("./data/parsedData/users.txt");
-            saxParser.parse(inputFile, userhandler);
+            UserHandler userHandler = new UserHandler("./data/parsedData/users.txt");
+            saxParser.parse(inputFile, userHandler);
         } catch (SAXException | IOException ex) {
             Logger.getLogger(ParseUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -90,7 +90,7 @@ class UserHandler extends DefaultHandler {
                 user.setCreationDate(creationDate);
             }
             String displayName = attributes.getValue("DisplayName");
-            if (creationDate != null) {
+            if (displayName != null) {
                 user.setDisplayName(html2text(displayName));
             }
             String emailHash = attributes.getValue("EmailHash");
