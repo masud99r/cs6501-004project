@@ -1,4 +1,4 @@
-Mining stack overflow repository to recommend solution for software issues/bugs
+Mining software repository to recommend solution for software issues/bugs
 -------------------------------------------------------------------------------
 
 
