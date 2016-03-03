@@ -11,16 +11,16 @@ package edu.virginia.cs.descriptors;
  */
 public class Users {
 
-    private Integer userId;
+    private Integer userId = -1;
     private Integer reputation = -1;
-    private String creationDate = "";
-    private String displayName = "";
-    private String emailHash = "";
-    private String lastAccessDate = "";
-    private String websiteUrl = "";
-    private String location = "";
+    private String creationDate = "[no creation date]";
+    private String displayName = "[no display name]";
+    private String emailHash = "[no email hash]";
+    private String lastAccessDate = "[no access date]";
+    private String websiteUrl = "[no website url]";
+    private String location = "[no location]";
     private Integer age = -1;
-    private String aboutMe = "";
+    private String aboutMe = "[no about me]";
     private Integer views = -1;
     private Integer upVotes = -1;
     private Integer downVotes = -1;

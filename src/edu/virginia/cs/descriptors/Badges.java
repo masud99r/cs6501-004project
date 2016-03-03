@@ -11,15 +11,15 @@ package edu.virginia.cs.descriptors;
  */
 public class Badges {
 
-    private String userId;
-    private String name;
-    private String date;
+    private Integer userId = -1;
+    private String name = "[no name]";
+    private String date = "[no date]";
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

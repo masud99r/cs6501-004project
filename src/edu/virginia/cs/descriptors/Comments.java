@@ -11,34 +11,34 @@ package edu.virginia.cs.descriptors;
  */
 public class Comments {
 
-    private String _id;
-    private String postId;
-    private String score;
-    private String text;
-    private String creationDate;
-    private String userId;
+    private Integer _id = -1;
+    private Integer postId = -1;
+    private Integer score = -1;
+    private String text = "[no text]";
+    private String creationDate = "[no creation date]";
+    private Integer userId = -1;
 
-    public String getId() {
+    public Integer getId() {
         return _id;
     }
 
-    public void setId(String _id) {
+    public void setId(Integer _id) {
         this._id = _id;
     }
 
-    public String getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(String postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 
-    public String getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
@@ -58,11 +58,11 @@ public class Comments {
         this.creationDate = creationDate;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

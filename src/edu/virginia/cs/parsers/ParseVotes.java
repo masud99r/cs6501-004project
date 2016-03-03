@@ -51,12 +51,10 @@ public class ParseVotes {
 
 class VoteHandler extends DefaultHandler {
 
-    private ArrayList<Votes> voteList;
     private Votes vote;
     private FileWriter fwriter;
 
     public VoteHandler(String filename) {
-        voteList = new ArrayList<>();
         try {
             fwriter = new FileWriter(filename);
         } catch (IOException ex) {
@@ -88,7 +86,6 @@ class VoteHandler extends DefaultHandler {
             if (voteTypeId != null) {
                 vote.setVoteTypeId(Integer.parseInt(voteTypeId));
             }
-            voteList.add(vote);
         } else {
             System.err.println("Unknown tag in the file!");
         }
@@ -107,7 +104,8 @@ class VoteHandler extends DefaultHandler {
         }
         if (qName.equalsIgnoreCase("row")) {
             try {
-                fwriter.write(vote.getId() + "\t" + vote.getPostId() + "\t" + vote.getVoteTypeId()+ "\t" + vote.getCreationDate()+ "\n");
+                fwriter.write(vote.getId() + "\t" + vote.getPostId() + "\t" + vote.getVoteTypeId()+ "\t" 
+                        + vote.getCreationDate()+ "\n");
             } catch (IOException ex) {
                 Logger.getLogger(UserHandler.class.getName()).log(Level.SEVERE, null, ex);
             }

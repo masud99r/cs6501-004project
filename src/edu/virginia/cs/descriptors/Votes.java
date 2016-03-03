@@ -16,9 +16,9 @@ public class Votes {
     // 1:AcceptedByOriginator, 2:UpMod, 3:DownMod, 4:Offensive, 5:Favorite, 6:Close, 7:Reopen
     // 8:BountyStart, 9:BountyClose, 10:Deletion, 11:Undeletion, 12:Spam, 13:InformModerator
     private Integer voteTypeId = -1;
-    private String creationDate = "";
+    private String creationDate = "[no creation date]";
     private Integer userId = -1; // only for VoteTypeId 5
-    private String bountyAmount = ""; // only for VoteTypeId 9
+    private String bountyAmount = "[no bounty amount]"; // only for VoteTypeId 9
 
     public Integer getId() {
         return _id;

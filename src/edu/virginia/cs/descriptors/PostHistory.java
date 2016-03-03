@@ -11,8 +11,8 @@ package edu.virginia.cs.descriptors;
  */
 public class PostHistory {
 
-    private String _id;
-    private String postHistoryTypeId; // description of the possible values given below
+    private Integer _id = -1;
+    private Integer postHistoryTypeId = -1; // description of the possible values given below
     //1: Initial Title - The first title a question is asked with.
     //2: Initial Body - The first raw body text a post is submitted with.
     //3: Initial Tags - The first tags a question is asked with.
@@ -35,44 +35,44 @@ public class PostHistory {
     //20: Question Unprotected - A question was unprotected by a moderator
     //21: Post Disassociated - An admin removes the OwnerUserId from a post
     //22: Question Unmerged - A previously merged question has had its answers and votes restored.
-    private String postId;
-    private String revisionGUID;
-    private String creationDate;
-    private String userId;
-    private String userDisplayName;
-    private String comment; // this field contains the comment made by the user who edited a post
-    private String text; // a raw version of the new value for a given revision
-    private String closeReasonId; // 1:Exact Duplicate, 2:off-topic, 3:subjective, 4:not a real question, 7:too localized
+    private Integer postId = -1;
+    private Integer revisionGUID = -1;
+    private String creationDate = "[no creation date]";
+    private Integer userId = -1;
+    private String userDisplayName = "[no display name]";
+    private String comment = "[no comment]"; // this field contains the comment made by the user who edited a post
+    private String text = "[no text]"; // a raw version of the new value for a given revision
+    private Integer closeReasonId = -1; // 1:Exact Duplicate, 2:off-topic, 3:subjective, 4:not a real question, 7:too localized
 
-    public String getId() {
+    public Integer getId() {
         return _id;
     }
 
-    public void setId(String _id) {
+    public void setId(Integer _id) {
         this._id = _id;
     }
 
-    public String getPostHistoryTypeId() {
+    public Integer getPostHistoryTypeId() {
         return postHistoryTypeId;
     }
 
-    public void setPostHistoryTypeId(String postHistoryTypeId) {
+    public void setPostHistoryTypeId(Integer postHistoryTypeId) {
         this.postHistoryTypeId = postHistoryTypeId;
     }
 
-    public String getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(String postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 
-    public String getRevisionGUID() {
+    public Integer getRevisionGUID() {
         return revisionGUID;
     }
 
-    public void setRevisionGUID(String revisionGUID) {
+    public void setRevisionGUID(Integer revisionGUID) {
         this.revisionGUID = revisionGUID;
     }
 
@@ -84,11 +84,11 @@ public class PostHistory {
         this.creationDate = creationDate;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -116,11 +116,11 @@ public class PostHistory {
         this.text = text;
     }
 
-    public String getCloseReasonId() {
+    public Integer getCloseReasonId() {
         return closeReasonId;
     }
 
-    public void setCloseReasonId(String closeReasonId) {
+    public void setCloseReasonId(Integer closeReasonId) {
         this.closeReasonId = closeReasonId;
     }
 

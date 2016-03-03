@@ -5,7 +5,11 @@
  */
 package edu.virginia.cs.main;
 
+import edu.virginia.cs.index.BadgeIndexer;
+import edu.virginia.cs.index.CommentIndexer;
+import edu.virginia.cs.index.PostHistoryIndexer;
 import edu.virginia.cs.index.PostIndexer;
+import edu.virginia.cs.index.PostLinkIndexer;
 import edu.virginia.cs.index.TagIndexer;
 import edu.virginia.cs.parsers.ParseUsers;
 import edu.virginia.cs.index.UserIndexer;
@@ -69,14 +73,14 @@ public class MainParser {
 
     public static void parseBadgeData() throws IOException {
         ParseBadges parser = new ParseBadges();
-//        parser.readFile("data/stackoverflowDump/Badges.xml");
-//        BadgeIndexer.index("lucene-stackoverflow-index/badges-index", "data/parsedData/", "badges.txt"); // building index for users
+        parser.readFile("data/stackoverflowDump/Badges.xml");
+        BadgeIndexer.index("lucene-stackoverflow-index/badges-index", "data/parsedData/", "badges.txt"); // building index for users
     }
 
     public static void parseCommentData() throws IOException {
         ParseComments parser = new ParseComments();
-//        parser.readFile("data/stackoverflowDump/Comments.xml");
-//        CommentIndexer.index("lucene-stackoverflow-index/comment-index", "data/parsedData/", "comments.txt"); // building index for users
+        parser.readFile("data/stackoverflowDump/Comments.xml");
+        CommentIndexer.index("lucene-stackoverflow-index/comment-index", "data/parsedData/", "comments.txt"); // building index for users
     }
 
     public static void parsePostData() throws IOException {
@@ -87,14 +91,14 @@ public class MainParser {
 
     public static void parsePostLinkData() throws IOException {
         ParsePostLinks parser = new ParsePostLinks();
-//        parser.readFile("data/stackoverflowDump/PostLinks.xml");
-//        PostLinkIndexer.index("lucene-stackoverflow-index/post-link-index", "data/parsedData/", "post_links.txt"); // building index for users
+        parser.readFile("data/stackoverflowDump/PostLinks.xml");
+        PostLinkIndexer.index("lucene-stackoverflow-index/post-link-index", "data/parsedData/", "post_links.txt"); // building index for users
     }
 
     public static void parsePostHistoryData() throws IOException {
         ParsePostHistory parser = new ParsePostHistory();
-//        parser.readFile("data/stackoverflowDump/PostHistory.xml");
-//        PostHistoryIndexer.index("lucene-stackoverflow-index/post-history-index", "data/parsedData/", "post_history.txt"); // building index for users
+        parser.readFile("data/stackoverflowDump/PostHistory.xml");
+        PostHistoryIndexer.index("lucene-stackoverflow-index/post-history-index", "data/parsedData/", "post_history.txt"); // building index for users
     }
 
     public static void parseVoteData() throws IOException {

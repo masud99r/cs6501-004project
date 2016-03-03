@@ -11,17 +11,17 @@ package edu.virginia.cs.descriptors;
  */
 public class PostLinks {
 
-    private String _id;
-    private String creationDate;
-    private String postId;
-    private String relatedPostId;
-    private String PostLinkTypeId; // 1:Linked, 3:Duplicate
+    private Integer _id = -1;
+    private String creationDate = "[no creation date]";
+    private Integer postId = -1;
+    private Integer relatedPostId = -1;
+    private Integer PostLinkTypeId = -1; // 1:Linked, 3:Duplicate
 
-    public String getId() {
+    public Integer getId() {
         return _id;
     }
 
-    public void setId(String _id) {
+    public void setId(Integer _id) {
         this._id = _id;
     }
 
@@ -33,27 +33,27 @@ public class PostLinks {
         this.creationDate = creationDate;
     }
 
-    public String getPostId() {
+    public Integer getPostId() {
         return postId;
     }
 
-    public void setPostId(String postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
 
-    public String getRelatedPostId() {
+    public Integer getRelatedPostId() {
         return relatedPostId;
     }
 
-    public void setRelatedPostId(String relatedPostId) {
+    public void setRelatedPostId(Integer relatedPostId) {
         this.relatedPostId = relatedPostId;
     }
 
-    public String getPostLinkTypeId() {
+    public Integer getPostLinkTypeId() {
         return PostLinkTypeId;
     }
 
-    public void setPostLinkTypeId(String PostLinkTypeId) {
+    public void setPostLinkTypeId(Integer PostLinkTypeId) {
         this.PostLinkTypeId = PostLinkTypeId;
     }
 

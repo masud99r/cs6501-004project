@@ -6,7 +6,6 @@
 package edu.virginia.cs.parsers;
 
 import edu.virginia.cs.descriptors.Posts;
-import edu.virginia.cs.descriptors.Users;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -53,12 +52,10 @@ public class ParsePosts {
 
 class PostHandler extends DefaultHandler {
 
-    private ArrayList<Posts> postList;
     private Posts post;
     private FileWriter fwriter;
 
     public PostHandler(String filename) {
-        postList = new ArrayList<>();
         try {
             fwriter = new FileWriter(filename);
         } catch (IOException ex) {
@@ -134,7 +131,6 @@ class PostHandler extends DefaultHandler {
             if (favoriteCount != null) {
                 post.setFavoriteCount(Integer.parseInt(favoriteCount));
             }
-            postList.add(post);
         } else {
             System.err.println("Unknown tag in the file!");
         }

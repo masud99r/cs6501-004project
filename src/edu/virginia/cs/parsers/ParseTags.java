@@ -51,12 +51,10 @@ public class ParseTags {
 
 class TagHandler extends DefaultHandler {
 
-    private ArrayList<Tags> tagList;
     private Tags tag;
     private FileWriter fwriter;
 
     public TagHandler(String filename) {
-        tagList = new ArrayList<>();
         try {
             fwriter = new FileWriter(filename);
         } catch (IOException ex) {
@@ -68,7 +66,7 @@ class TagHandler extends DefaultHandler {
     public void startElement(String uri,
             String localName, String qName, Attributes attributes)
             throws SAXException {
-        if (qName.equalsIgnoreCase("votes")) {
+        if (qName.equalsIgnoreCase("tags")) {
             System.out.println("Parsing Started!!!");
         } else if (qName.equalsIgnoreCase("row")) {
             tag = new Tags();
@@ -88,7 +86,6 @@ class TagHandler extends DefaultHandler {
             if (wikiPostId != null) {
                 tag.setWikiPostId(Integer.parseInt(wikiPostId));
             }
-            tagList.add(tag);
         } else {
             System.err.println("Unknown tag in the file!");
         }
@@ -107,7 +104,8 @@ class TagHandler extends DefaultHandler {
         }
         if (qName.equalsIgnoreCase("row")) {
             try {
-                fwriter.write(tag.getId() + "\t" + tag.getTagName()+ "\t" + tag.getCount()+ "\t" + tag.getWikiPostId()+ "\n");
+                fwriter.write(tag.getId() + "\t" + tag.getTagName() + "\t" + tag.getCount() + "\t" 
+                        + tag.getWikiPostId() + "\n");
             } catch (IOException ex) {
                 Logger.getLogger(UserHandler.class.getName()).log(Level.SEVERE, null, ex);
             }

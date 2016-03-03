@@ -12,7 +12,7 @@ package edu.virginia.cs.descriptors;
 public class Tags {
 
     private Integer _id = -1;
-    private String tagName = "";
+    private String tagName = "[no tag name]";
     private Integer count = -1;
     private Integer wikiPostId = -1;
 

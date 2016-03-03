@@ -52,12 +52,10 @@ public class ParseUsers {
 
 class UserHandler extends DefaultHandler {
 
-    private ArrayList<Users> usersList;
     private Users user;
     private FileWriter fwriter;
 
     public UserHandler(String filename) {
-        usersList = new ArrayList<>();
         try {
             fwriter = new FileWriter(filename);
         } catch (IOException ex) {
@@ -133,7 +131,6 @@ class UserHandler extends DefaultHandler {
             if (accountId != null) {
                 user.setAccountId(Integer.parseInt(accountId));
             }
-            usersList.add(user);
         } else {
             System.err.println("Unknown tag in the file!");
         }
