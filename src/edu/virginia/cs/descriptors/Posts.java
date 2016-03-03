@@ -19,6 +19,7 @@ public class Posts {
     private Integer score = -1;
     private Integer viewCount = -1;
     private String body = "[no body]";
+    private String code = "[no code]";
     private Integer ownerUserId = -1;
     private Integer lastEditorUserId = -1;
     private String lastEditorDisplayName = "[no editor display name]";
@@ -94,6 +95,14 @@ public class Posts {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Integer getOwnerUserId() {
@@ -194,7 +203,7 @@ public class Posts {
 
     @Override
     public String toString() {
-        return "Posts{" + "_id=" + _id + ", postTypeId=" + postTypeId + ", parentId=" + parentId + ", acceptedAnswerId=" + acceptedAnswerId + ", creationDate=" + creationDate + ", score=" + score + ", viewCount=" + viewCount + ", body=" + body + ", ownerUserId=" + ownerUserId + ", lastEditorUserId=" + lastEditorUserId + ", lastEditorDisplayName=" + lastEditorDisplayName + ", lastEditDate=" + lastEditDate + ", lastActivityDate=" + lastActivityDate + ", communityOwnedDate=" + communityOwnedDate + ", closedDate=" + closedDate + ", title=" + title + ", tags=" + tags + ", answerCount=" + answerCount + ", commentCount=" + commentCount + ", favoriteCount=" + favoriteCount + '}';
+        return "Posts{" + "_id=" + _id + ", postTypeId=" + postTypeId + ", parentId=" + parentId + ", acceptedAnswerId=" + acceptedAnswerId + ", creationDate=" + creationDate + ", score=" + score + ", viewCount=" + viewCount + ", body=" + body + ", code=" + code + ", ownerUserId=" + ownerUserId + ", lastEditorUserId=" + lastEditorUserId + ", lastEditorDisplayName=" + lastEditorDisplayName + ", lastEditDate=" + lastEditDate + ", lastActivityDate=" + lastActivityDate + ", communityOwnedDate=" + communityOwnedDate + ", closedDate=" + closedDate + ", title=" + title + ", tags=" + tags + ", answerCount=" + answerCount + ", commentCount=" + commentCount + ", favoriteCount=" + favoriteCount + '}';
     }
 
 }

@@ -9,13 +9,14 @@ import edu.virginia.cs.descriptors.Posts;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -67,6 +68,32 @@ class PostHandler extends DefaultHandler {
         return Jsoup.parse(html).text();
     }
 
+    private String[] extractTextAndCode(String html) {
+        Document doc = Jsoup.parse(html);
+        String body = "";
+        for (Element temp : doc.select("p")) {
+            body += temp.text() + " ";
+        }
+        if (body.isEmpty()) {
+            body = doc.text();
+        } else {
+            body = body.trim();
+        }
+        doc.select("p").remove();
+        String code = "";
+        for (Element temp : doc.select("code")) {
+            code += temp.text() + " ";
+        }
+        code = code.replaceAll("\r|\n|\t", " "); // removal of new line is important here
+        if (code.isEmpty()) {
+            code = "[no code]";
+        } else {
+            code = code.trim();
+        }
+        String[] retValue = {body, code};
+        return retValue;
+    }
+
     @Override
     public void startElement(String uri,
             String localName, String qName, Attributes attributes)
@@ -104,8 +131,12 @@ class PostHandler extends DefaultHandler {
                 post.setViewCount(Integer.parseInt(viewCount));
             }
             String body = attributes.getValue("Body");
-            if (body != null) {
-                post.setBody(body);
+            String[] str = extractTextAndCode(body);
+            if (str[0] != null) {
+                post.setBody(str[0]);
+            }
+            if (str[1] != null) {
+                post.setCode(str[1]);
             }
             String ownerId = attributes.getValue("OwnerUserId");
             if (ownerId != null) {
@@ -150,8 +181,8 @@ class PostHandler extends DefaultHandler {
         if (qName.equalsIgnoreCase("row")) {
             try {
                 fwriter.write(post.getId() + "\t" + post.getPostTypeId() + "\t" + post.getParentId() + "\t" + post.getAcceptedAnswerId()
-                        + "\t" + post.getCreationDate() + "\t" + post.getScore() + "\t" + post.getViewCount()
-                        + "\t" + post.getBody() + "\t" + post.getOwnerUserId() + "\t" + post.getTitle() + "\t" + post.getTags()
+                        + "\t" + post.getCreationDate() + "\t" + post.getScore() + "\t" + post.getViewCount() + "\t" + post.getBody()
+                        + "\t" + post.getCode() + "\t" + post.getOwnerUserId() + "\t" + post.getTitle() + "\t" + post.getTags()
                         + "\t" + post.getAnswerCount() + "\t" + post.getCommentCount() + "\t" + post.getFavoriteCount() + "\n");
             } catch (IOException ex) {
                 Logger.getLogger(UserHandler.class.getName()).log(Level.SEVERE, null, ex);

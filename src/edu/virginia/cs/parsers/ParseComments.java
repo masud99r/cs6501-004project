@@ -9,7 +9,6 @@ import edu.virginia.cs.descriptors.Comments;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -87,9 +86,10 @@ class CommentHandler extends DefaultHandler {
             if (score != null) {
                 comment.setScore(Integer.parseInt(score));
             }
-            String text = attributes.getValue(html2text("Text"));
+            String text = attributes.getValue("Text");
             if (text != null) {
-                comment.setText(text);
+                text = html2text(text).replaceAll("\r|\n|\t", " "); // removal of new line is important here
+                comment.setText(html2text(text));
             }
             String creationDate = attributes.getValue("CreationDate");
             if (creationDate != null) {

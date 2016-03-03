@@ -73,13 +73,14 @@ public class PostIndexer {
             String[] splits = line.split("\t");
             Document doc = new Document();
             doc.add(new Field("id", splits[0], _contentFieldType));
-            doc.add(new Field("postTypeId", splits[1], _FieldType));
+            doc.add(new Field("postTypeId", splits[1], _contentFieldType));
             doc.add(new Field("parentId", splits[2], _FieldType));
             doc.add(new Field("acceptedAnswerId", splits[3], _FieldType));
             doc.add(new Field("creationDate", splits[4], _FieldType));
             doc.add(new Field("score", splits[5], _FieldType));
             doc.add(new Field("viewCount", splits[6], _FieldType));
-            doc.add(new Field("body", splits[7], _FieldType));
+            doc.add(new Field("body", splits[7], _contentFieldType));
+            doc.add(new Field("code", splits[7], _contentFieldType));
             doc.add(new Field("ownerId", splits[8], _FieldType));
             doc.add(new Field("title", splits[9], _FieldType));
             doc.add(new Field("tags", splits[10], _FieldType));
